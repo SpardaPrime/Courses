@@ -170,7 +170,7 @@ router.get("/:id/edit", authMiddle, async (req, res) => {
   }
   try {
     const course = await Course.findById(req.params.id).lean();
-
+    
     if (course.userId.toString() !== req.user._id.toString()) {
       return res.redirect("/courses");
     }

@@ -1540,24 +1540,6 @@ padding:0 25px;
 
 }
 
-.footer{
-    position: relative;
-    width: 100%;
-    height: 40px;
-    margin-top: 20px;
-    box-shadow:1px -1px 5px $border-color;
-    display: flex;
-    justify-content: center;
-    p{
-        position: absolute;
-        left:0;
-        bottom:0;
-    }
-    a{
-        text-align: center;
-        color:$text-black;
-    }
-}
 
 .down{
 position: absolute!important;
@@ -1868,3 +1850,14 @@ background:transparent;
         }
     }
 }
+
+.text-area-div{
+    width: 100%;
+    height: auto;
+
+    textarea{
+        width:100%;
+        min-height: 120px;
+        overflow: hidden;
+ }
+    }

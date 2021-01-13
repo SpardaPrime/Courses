@@ -39,14 +39,7 @@ let blockLatest = {
   right: "latest-right-btn",
   row: 3,
 };
-if (document.getElementById("footer")) {
-  if (document.getElementById("my-account")) {
-    document.getElementById("footer").classList.add("down");
-  }
-  document.documentElement.clientHeight ===
-    document.documentElement.scrollHeight &&
-    document.getElementById("footer").classList.add("down");
-}
+
 
 if (document.getElementById("catalog-noauth")) {
   document.addEventListener("click", (e) => {
@@ -57,6 +50,21 @@ if (document.getElementById("catalog-noauth")) {
     }
     document.getElementById("catalog-noauth-div").style.display = "block";
   });
+
+  if(document.querySelector('.text-area-area')){
+    const elem = document.querySelector('.text-area-area');
+    document.addEventListener('click',e=>{
+      let targ = e.target.closest('.text-area-area');
+      if(!targ){
+        elem.style.height=120+'px';
+        return;
+      }
+      const h = targ.scrollHeight;
+      targ.style.height=h+'px';
+    })
+    
+    
+  }
 
   document
     .getElementById("btn-navbar-mobile")

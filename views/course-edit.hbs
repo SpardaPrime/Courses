@@ -18,10 +18,18 @@
 
     </div>
 
+    <div class="text-area-div">
+        <label for="txt-area">Description</label>
+        <textarea id="txt-area" class="text-area-area" name="description" >{{course.description}}</textarea>
+        
+        
+
+    </div>
+
     <input type="hidden" name="id" value="{{course._id}}">
     <input type="hidden" name="_csrf" value="{{csrf}}">
 
-    <button title="Edit this course" class="account-a-button form-btns-cart marg-top-20" type="submit">Edit <i class="material-icons">edit</i></button>
+    <button title="Edit this course" class="account-a-button form-btns-cart marg-top-20" type="submit">Save <i class="material-icons">edit</i></button>
 
 </form>
 <form action="/courses/edit/delete/{{course._id}}" method="POST">
