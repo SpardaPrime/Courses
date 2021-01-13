@@ -1,0 +1,27 @@
+<h1>Profile</h1>
+<div class="profile-div">
+<div class="profile-container">
+    {{#if user.avatarUrl}}
+        <img src="/{{user.avatarUrl}}" alt="avatar">
+        {{else}}
+        <p>no Avatar</p>
+  {{/if}}
+</div>
+    <div class="profile-container">
+    <ul>
+        <li class="profile-li"><div class="profile-li-div">User id</div><div class="profile-li-div-2"v>{{user._id}}</div></li>
+        <li class="profile-li"><div class="profile-li-div">Email</div><div class="profile-li-div-2">{{user.email}}</div></li>
+        <li class="profile-li"><div class="profile-li-div">Name</div><div class="profile-li-div-2">{{user.name}}</div></li>
+        <li class="profile-li">
+            <form action="/profile/edit" action="GET">
+                <button class="account-a-button form-btns-cart" type="submit" title="Edit">Edit <i class="material-icons">create</i></button>
+            </form>
+            </li>
+    </ul>
+     
+    <div>
+        
+    </div>
+</div>
+</div>
+

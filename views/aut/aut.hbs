@@ -1,0 +1,76 @@
+  <div id="my-account" class="row aut-row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a href="#test1" class="aut-main">Log in</a></li>
+        <li class="tab col s6"><a class="active aut-main" href="#test2">Create account</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12">
+      {{#if wrongUser}}
+      <p>{{wrongUser}}</p>
+      {{/if}}
+      {{#if wrongPass}}
+      <p>{{wrongPass}}</p>
+      {{/if}}
+      {{#if enterError}}
+      <p>{{enterError}}</p>
+      {{/if}}
+  <div class="row main-row-enter">
+
+    <form class="col s12 enter-field" action="/authorization/enter" method="POST">
+      
+        <div class="input-field col s12">
+          <input  id="email" type="text" class="validate" name="email">
+          <label for="first_name">Email</label>
+        </div>
+     
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <button class="btns-registrane-login" type="submit">Log in</button>
+      <a href="authorization/reset" class="forgot">forgot password?</a>
+    </form>
+  </div>
+    </div>
+    <div id="test2" class="col s12">
+      {{#if errorCandidate}}
+    <p>{{errorCandidate}}</p>
+    {{/if}}
+  <div class="row">
+    <form class="col s12 form-create-acc" action="/authorization/registration" method="POST">
+      <div class="row">
+                {{#if registError}}
+      <p>{{registError}}</p>
+      {{/if}}
+        <div class="input-field col s6">
+          <input  id="rfirst_name" type="text" class="validate" name="name">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="rlast_name" type="text" class="validate" name="last_name">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="remail" type="email" class="validate" name="email" validate>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="rpassword" type="password" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+
+              <button class="btns-registrane-login" type="submit">Create</button>
+
+    </form>
+  </div>
+    </div>
+  </div>
+        

@@ -1,0 +1,25 @@
+{{>head}}
+
+<body>
+    {{>navbar}}
+    <div id="cart-block">
+        <a title="Cart items" href="/cart" >
+            <div>
+                <h5 id="cart-block-text">.</h5>
+            </div>
+        </a>
+    </div>
+
+    <div id="container" class="container">
+        <div class="shadow-page"></div>
+        {{{body}}}
+
+    </div>
+    <div id="footer" class="footer">
+        <a href="#logo">Up <i class="material-icons">arrow_upward</i></a>
+        <p>© 2021.Courses</p>
+    </div>
+    {{>footer}}
+</body>
+
+</html>

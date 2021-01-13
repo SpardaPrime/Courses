@@ -1,0 +1,59 @@
+<h1>Products</h1>
+
+  <div class="search-item-panel">
+    <form action="/courses/search" method="GET">
+      <input type="text" placeholder="Search" name="name" value="{{val}}"/>
+      
+      <button type="submit" class="search-btn">Search <i class="small material-icons" title="search">search</i></button>
+    </form>
+  </div>
+
+<div class="courses-1">
+  
+  {{#if courses.length}}
+  {{#each courses}}
+
+  <div class="card courses-cart">
+
+    <div class="card-image courses-image">
+      <img src="{{img}}" alt="{{title}}">
+    </div>
+    <div class="card-content courses-content">
+      <h5>{{title}}</h5>
+      <h6 class="price">{{price}}</h6>
+      
+    </div>
+    <div class="card-action courses-action">
+      <a href="/courses/{{_id}}" target="_blank">
+        <button class="cou-btn-ses course-btn">Open</button>
+      </a>
+      {{#if @root.isAuth}}
+         {{#ifeq userId._id @root.userId}}
+          <a href="/courses/{{_id}}/edit?allow=true">
+          <button class="cou-btn-ses course-btn">Edit</button>
+           </a>
+         {{/ifeq}}
+      
+      <form action="/cart/add" method="POST">
+        <input type="hidden" name="id" value="{{_id}}">
+        <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+        <button class="cou-btn-ses course-btn" type="submit">Buy</button>
+      </form>
+
+      {{/if}}
+    </div>
+  </div>
+
+
+  {{/each}}
+  {{else}}
+  {{#if found}}
+    <p>>Products and service not defined</p>
+  {{else}}
+  <div class="courses-else-block">
+    <h5>Items not found</h5>
+  <a href="/courses"><button class="account-a-button form-btns-cart" title="Back"><i class="material-icons">chevron_left</i>Back</button></a>
+  </div>
+  {{/if}}
+  {{/if}}
+</div>

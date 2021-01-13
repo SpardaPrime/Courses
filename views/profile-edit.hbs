@@ -1,0 +1,19 @@
+<h1>Edit Profile</h1>
+<a href="/profile" class="account-a-button form-btns-cart">Back <i class="material-icons">chevron_left</i></a>
+<div class="edit-profile-form">
+<form action="/profile/edit" method="POST" enctype="multipart/form-data">
+    <div>
+        <input type="text" name="name" id="edit-profile-name"value="{{user.name}}"/>
+        <label for="edit-profile-name">Name</label>
+    </div>
+      <div>
+        <input class="input-choise-file" type="file" id="edit-avatar" name="avatar">
+        <label for="edit-avatar">Avatar</label>
+    </div>
+
+<input type="hidden" name="_csrf" value="{{csrf}}">
+    <div>
+        <button class="account-a-button form-btns-cart" type="submit">Edit <i class="material-icons">edit</i></button>
+    </div>
+</form>
+</div>

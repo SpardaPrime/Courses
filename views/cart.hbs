@@ -1,0 +1,49 @@
+<h1>Cart</h1>
+<div id="cart">
+ 
+    {{#if courses.length}}
+    <ul class="collection">
+         <li class="collection-item cart-main">
+          <div><h4>Name course</h4></div>
+          <div><h4>Price</h4></div>
+          <div><h4>Quantity</h4></div>
+          <div><h4>Image</h4></div>
+          <div><h4>Action</h4></div>
+          </li>
+          <div class="main">
+        {{#each courses}}
+      <li class="collection-item cart cart-li">
+          <div><h5>{{_doc.title}}</h5></div>
+          <div><h5 class="price">{{_doc.price}}</h5></div>
+          <div><h5>{{count}}</h5></div>
+          <div class="cart-li-div-img"><img class="cart-img" src="{{_doc.img}}" alt="{{_doc.title}}"></div>
+          <div>
+            <button class="add" data-id="{{_doc._id}}" data-csrf="{{@root.csrf}}" title="Add one"><i class="material-icons">add</i></button>
+            <button class="del" data-id="{{_doc._id}}" data-csrf="{{@root.csrf}}" title="Delete one"><i class="material-icons">remove</i></button>
+            </div>
+          </li>
+       {{/each }}
+       </div>
+        <li class="collection-item cart-total">
+          <div><h4>Total :</h4></div>
+          <div><h4 class="total price">{{price}}</h4></div>
+          </li>
+    </ul>
+<div class="block-buy-btns">
+<form action="/order" method="POST">
+          <input type="hidden" name="_csrf" value="{{csrf}}">
+
+    <button class="account-a-button form-btns-cart" title="Buy">Buy <i class="small material-icons">shopping_cart</i></button>
+    </form>
+     <form action="/cart/delAll" method="POST">
+  <input type="hidden" name="_csrf" value="{{csrf}}"/>
+  <button type="submit" class="account-a-button form-btns-cart" title="Clear cart">Clear <i class="small material-icons">remove_shopping_cart</i></button>
+  </form>
+</div>
+    
+    {{else}}
+    <h2>Empty
+      
+    </h2>
+     {{/if}}
+</div>

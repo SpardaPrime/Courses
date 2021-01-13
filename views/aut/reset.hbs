@@ -1,0 +1,16 @@
+<form  class="col s12 reset-pass" action="/authorization/reset/email" method="POST">
+     
+      <div class="row">
+          {{#if error}}
+          <p>{{error}}</p>
+          {{/if}}
+        <div class="input-field col s12">
+          <input id="remail" type="email" class="validate" name="email">
+          <label for="email">Email</label>
+        </div>
+    
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+
+              <button class="reset-pass-btn" type="submit">reset password</button>
+
+    </form>

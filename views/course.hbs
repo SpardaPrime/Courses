@@ -1,0 +1,50 @@
+<div class="course">
+    <div class="course-block">
+        <div class="close-course-block">
+            <button><i class="material-icons">close</i></button>
+        </div>
+        {{#if buy}}
+           <div class="btn-buy-course">
+                <button class="btn-buy-course-check-course" title="bought"><i class="material-icons">check</i></button>
+        </div>
+        {{else}}
+        {{#if person}}
+            <div class="btn-buy-course">
+            <form action="/courses/courseBuy" method="POST">
+                <input type="hidden" name="id" value="{{course._id}}">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <button type="submit"><i class="material-icons">add_shopping_cart</i></button>
+            </form>
+        </div>
+        {{else}}
+            <div class="btn-buy-course">
+                <a href="http://localhost:3000/authorization#test1"><button title="Log in" ><i class="material-icons">person</i></button></a>
+        </div>
+        {{/if}}
+        {{/if}}
+        
+        <div class="course-block-left">
+              <h2>{{course.title}}</h2>
+                <img src="{{course.img}}" alt="{{course.title}}">
+                <h4>Author</h4>
+                <img class="author-course-img" src="/{{course.userId.avatarUrl}}" alt="{{course.title}}">
+                <h5>Name</h5>
+                <h6>{{course.userId.name}}</h6>
+
+        </div>
+       <div class="course-block-right">
+           <div>
+               <h4>Price</h4>
+                <p class="price">{{course.price}}</p>
+           </div>
+            {{#if course.description}}
+            <div>
+                <h4>Description</h4>
+                <p>{{course.description}}</p>
+            </div>
+    {{/if}}
+       </div>
+  
+    </div>
+   
+</div>

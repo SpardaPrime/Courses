@@ -1,0 +1,52 @@
+<h1>Order</h1>
+{{#if data.length}}
+<div class="orders-area">
+   
+{{#each data}}
+ 
+    <div class="col s12 m6">
+      <div class="card order cart-block-order">
+        <div class="card-content ">
+          <form action="/order/delorderlist" method="POST">
+            <input type="hidden" value="{{_id}}" name="id">
+            <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+            <button class="btn  red darken-1 waves-effect waves-light delete-btn-order" type="submit" title="delete list">
+              <i class="medium material-icons">cancel</i>
+            </button>
+          </form>
+           
+        <span class="card-title cart-id-title">Order id {{_id}}</span>
+        <span class="card-title">User {{user.name}}</span>
+
+         <span class="card-title order-date">{{date}}</span>
+        </div>
+        <div class="card-action">
+            <span class="card-title">Total</span>
+            <span class="card-title span-total">{{total}}</span>
+            <ul class="collection">
+                {{#each courses}}
+    <li class="collection-item avatar avatar-li">
+      <div class="avatar-div">
+           <span class="title">Title {{course.title}}</span>
+      <p>Price <span class="p-span-price">{{course.price}}</span> </p>
+        <p>Count {{count}}</p>
+      </div>
+      <div>
+          <img src="{{course.img}}" alt="" class="avatar-img">
+      </div>
+
+    </li>
+    
+                {{/each}}
+            </ul>
+        </div>
+      </div>
+    </div>
+    
+  
+    {{/each}}   
+    </div>   
+{{else}}
+<h3>Order empty</h3>
+
+{{/if}}

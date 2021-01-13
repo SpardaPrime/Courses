@@ -1,0 +1,39 @@
+<h1>Add new Products</h1>
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}
+<form action="/add" method="POST">
+<div class="input-field">
+    <input name="title" id="title" class="validate" type="text">
+    <label for="title">Title</label>
+</div>
+
+<div class="input-field">
+     <p>Rubric<select name="rubric"></p>
+    <option selected  value="Development">Development</option>
+    <option value="Business">Business</option>
+    <option value="Design">Design</option>
+    <option value="Music">Music</option>
+</select>
+</div>
+ 
+
+
+<div class="input-field">
+    <input name="price" id="price" class="validate" type="number">
+    <label for="price">Price</label>
+
+</div>
+
+<div class="input-field">
+    <input name="url" id="img" class="validate" type="text">
+    <label for="img">Url image</label>
+
+</div>
+<div class="input-field">
+    <p>Description<textarea name="description"></textarea></p>
+</div>
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+
+<button class="btns-registrane-login" type="submit" title="Add"><i class="small material-icons">note_add</i></button>
+</form>

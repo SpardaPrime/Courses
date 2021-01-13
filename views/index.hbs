@@ -1,0 +1,166 @@
+
+    <a class="a-h1" id="home-page" href="#home-page"><h1>Home page</h1></a>
+<!--[if lte IE 8]><div>Entenet exployer</div><![endif]-->
+    <div>
+        <div>
+            {{#if hello}}
+            <h6>Hello {{hello}}, we have courses that might interest you</h6>
+            {{/if}}
+            <div class="pre-index-container">
+
+                <button id="carousel-pause" class="index-btns-down"><i class="medium material-icons">pause</i></button>
+                <button id="carousel-play" class="index-btns-down"><i class="medium material-icons">play_arrow</i></button>
+
+                <button class="index-btns-up" id="carousel-btn-up"><i class="medium material-icons">keyboard_arrow_up</i></button>
+                <h6 class="index-count-page">...</h6>
+                <button class="index-btns-down" id="carousel-btn-down"><i class="medium material-icons">keyboard_arrow_down</i></button>
+             <div class="index-container-carts">
+                {{#each courses}}
+                <div class="index-cart transition-all">
+                    
+                    <div class="index-div-img"><img src="{{img}}" alt="{{title}}"></div>
+                    <div class="index-block">
+                        <div class="index-div-h4"><h4>{{title}}</h4></div>
+                        <div class="index-div-h6"><h5 class="price">{{price}}</h5></div>
+                        <div class="index-div-p"><p>{{description}}</p></div>
+                        <div class="index-div-active">
+                            {{#if @root.hello}}
+                             <a href="/courses/{{_id}}" target="new_blank">Open</a>
+    
+                            <form action="/cart/add" method="POST">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                            <button  type="submit">Buy</button>
+                            </form>
+                            
+                            {{else}}
+                            <a href="/courses/{{_id}}" target="new_blank">open</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                    
+                </div>
+                {{/each}}
+            </div>
+            </div>
+           
+        </div>
+        <a class="a-h1" id="section" href="#section"><h1>Sections</h1></a>
+        <div class="pre-index-block-nav">
+            {{#each nav}}
+            
+                <a class="index-block-nav" href="{{link}}">{{title}}</a>
+            
+            {{/each}}
+        </div>
+
+        <a class="a-h1" id="new-courses" href="#new-courses"><h1>New courses</h1></a>
+        <div class="qweasd">
+              <button id="latest-left-btn" class="section-btn-left"><i class="material-icons">chevron_left</i></button>
+            <button id="latest-right-btn"  class="section-btn-right"><i class="material-icons">chevron_right</i></button>
+             <div id="section-latest" class="section-dev">
+          
+            {{#each latest}}
+            <div class="section-dev-block">   
+                <div class="section-dev-img" ><img src="{{img}}" alt="{{title}}"></div>
+                <div class="section-dev-title"><h5>{{title}}</h5></div>
+                <div class="section-dev-active">
+                <div class="section-dev-price" ><h6 class="price">{{price}}</h6></div>
+                
+                    <a href="/courses/{{lowcase rubric}}">{{rubric}}</a>
+                    <a href="/courses/{{_id}}" target="new_target">Open</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+
+        <a class="a-h1" id="section-dev" href="#section-dev"><h1>Section Development</h1></a>
+        <div class="qweasd">
+              <button id="dev-left-btn" class="section-btn-left"><i class="material-icons">chevron_left</i></button>
+            <button id="dev-right-btn" class="section-btn-right"><i class="material-icons">chevron_right</i></button>
+             <div id="section-dev-id" class="section-dev">
+          
+            {{#each dev}}
+            <div class="section-dev-block">
+                <div class="section-dev-img" ><img src="{{img}}" alt="{{title}}"></div>   
+                <div class="section-dev-title"><h5>{{title}}</h5></div>
+                
+                <div class="section-dev-active">
+                <div class="section-dev-price" ><h6 class="price">{{price}}</h6></div>
+
+                    <a href="/courses/{{_id}}" target="new_target">Open</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+
+         <a class="a-h1" id="section-bus" href="#section-bus"><h1>Section Business</h1></a>
+        <div class="qweasd">
+              <button id="busi-left-btn" class="section-btn-left"><i class="material-icons">chevron_left</i></button>
+            <button id="busi-right-btn"  class="section-btn-right"><i class="material-icons">chevron_right</i></button>
+             <div id="section-Business" class="section-dev">
+          
+            {{#each buis}}
+            <div class="section-dev-block">  
+                <div class="section-dev-img" ><img src="{{img}}" alt="{{title}}"></div> 
+                <div class="section-dev-title"><h5>{{title}}</h5></div>
+                
+                <div class="section-dev-active">
+                <div class="section-dev-price" ><h6 class="price">{{price}}</h6></div>
+
+                    <a href="/courses/{{_id}}" target="new_target">Open</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+
+        <a class="a-h1" id="section-des" href="#section-des"><h1>Section Design</h1></a>
+        <div class="qweasd">
+              <button id="design-left-btn" class="section-btn-left"><i class="material-icons">chevron_left</i></button>
+            <button id="design-right-btn"  class="section-btn-right"><i class="material-icons">chevron_right</i></button>
+             <div id="section-design" class="section-dev">
+          
+            {{#each design}}
+            <div class="section-dev-block">   
+                <div class="section-dev-img" ><img src="{{img}}" alt="{{title}}"></div>
+                <div class="section-dev-title"><h5>{{title}}</h5></div>
+                
+                <div class="section-dev-active">
+                <div class="section-dev-price" ><h6 class="price">{{price}}</h6></div>
+
+                    <a href="/courses/{{_id}}" target="new_target">Open</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+
+         <a class="a-h1" id="section-mus" href="#section-mus"><h1>Section Music</h1></a>
+        <div class="qweasd">
+              <button id="music-left-btn" class="section-btn-left"><i class="material-icons">chevron_left</i></button>
+            <button id="music-right-btn"  class="section-btn-right"><i class="material-icons">chevron_right</i></button>
+             <div id="section-music" class="section-dev">
+          
+            {{#each music}}
+            <div class="section-dev-block">  
+                 <div class="section-dev-img" ><img src="{{img}}" alt="{{title}}"></div> 
+                <div class="section-dev-title"><h5>{{title}}</h5></div>
+               
+                <div class="section-dev-active">
+                <div class="section-dev-price" ><h6 class="price">{{price}}</h6></div>
+
+                    <a href="/courses/{{_id}}" target="new_target">Open</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+       
+    </div>
+
+
+   
+

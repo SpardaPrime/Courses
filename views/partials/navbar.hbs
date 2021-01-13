@@ -1,0 +1,175 @@
+<nav>
+        <div class="nav-wrapper">
+                <a href="/" class="unselectable brand-logo"  id="logo">
+                        Courses
+                </a>
+                <button id="btn-navbar-mobile" class="btn-navbar-mobile"><i class="material-icons">apps</i></button>
+                <div id="navbar-mobile" class="navbar-mobile">
+                        <ul>
+                                <li><a href="/">Main</a></li>
+                                <li id="catalog-noauth"><a href="#">Catalog</a>
+                                        <div id="catalog-noauth-div" class="navbar-mobile-catalog">
+                                                <ul>
+                                                        <li><a href="/courses/develop">Development</a></li>
+                                                        <li><a href="/courses/business">Business</a></li>
+                                                        <li><a href="/courses/design">Design</a></li>
+                                                        <li><a href="/courses/music">Music</a></li>
+                                                        <li><a href="/courses">All</a></li>
+                                                </ul>
+                                        </div>
+                                </li>
+                                {{#if isAuth}}
+
+                                <li><a href="/add">Add courses</a></li>
+                                <li><a href="/cart">Cart</a></li>
+                                <li><a href="/order">Order</a></li>
+                                <li><a href="/profile">Profile</a></li>
+                                <li><a href="/authorization/logout">Exit</a></li>
+                                {{else}}
+
+                                <li><a href="/profile">Profile</a></li>
+                                {{/if}}
+
+                        </ul>
+                </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        {{#if isHome}}
+                        <li class="active"><a href="/">Main</a></li>
+                        {{else}}
+                        <li><a href="/">Main</a></li>
+                        {{/if}}
+
+
+
+                        <li class="catalog-navbar-li"><a href="#">Catalog</a>
+                                 <div class="catalog-navbar">
+                                <div class="catalog-navbars-divs">
+                                        <div>
+                                                <ul>
+                                                        <li>web-develop</li>
+                                                        <li>programming languages</li>
+                                                        <li>testing</li>
+                                                </ul>
+                                        </div>
+                                        <a href="/courses/develop" class="account-a-button">Develop <i
+                                                        class="material-icons">keyboard_arrow_down</i></a>
+                                </div>
+                                <div class="catalog-navbars-divs">
+                                        <div>
+                                                <ul>
+                                                        <li>entrepreneurship</li>
+                                                        <li>communication skills</li>
+                                                        <li>management</li>
+                                                        <li>sales</li>
+                                                </ul>
+                                        </div>
+                                        <a href="/courses/business" class="account-a-button">Business <i
+                                                        class="material-icons">keyboard_arrow_down</i></a>
+                                </div>
+                                <div class="catalog-navbars-divs">
+                                        <div>
+                                                <ul>
+                                                        <li>web-design</li>
+                                                        <li>graphic design</li>
+                                                        <li>design tools</li>
+                                                        <li>design thinking</li>
+                                                </ul>
+                                        </div>
+                                        <a href="/courses/design" class="account-a-button">Design <i
+                                                        class="material-icons">keyboard_arrow_down</i></a>
+                                </div>
+                                <div class="catalog-navbars-divs">
+                                        <div>
+                                                <ul>
+                                                        <li>tools</li>
+                                                        <li>basics of music</li>
+                                                        <li>vocals</li>
+                                                        <li>music software</li>
+
+                                                </ul>
+                                        </div>
+                                        <a href="/courses/music" class="account-a-button">Music <i
+                                                        class="material-icons">keyboard_arrow_down</i></a>
+                                </div>
+                                <div class="catalog-navbars-divs">
+                                        <div>
+                                                <p>all categories together</p>
+                                        </div>
+                                        <a href="/courses" class="account-a-button">All <i
+                                                        class="material-icons">keyboard_arrow_down</i></a>
+                                </div>
+                        </div>
+                        </li>
+                       
+
+
+
+                        {{#if isAuth}}
+                        {{#if isAdd}}
+                        <li class="active"><a href="/add">Add</a></li>
+                        {{else}}
+                        <li><a href="/add">Add</a></li>
+                        {{/if}}
+                        {{#if isCart}}
+                        <li class="active" id="nav-cart"><a href="/cart">Cart</a></li>
+                        {{else}}
+                        <li id="nav-cart"><a href="/cart">Cart</a></li>
+                        {{/if}}
+                        {{#if isOrder}}
+                        <li class="active"><a href="/order">Order</a></li>
+                        {{else}}
+                        <li><a href="/order">Order</a></li>
+                        {{/if}}
+                        {{#if isProfile}}
+                        <li class="active"><a href="/profile">Profile</a></li>
+
+                        {{else}}
+                        <li><a href="/profile">Profile</a></li>
+
+                        {{/if}}
+                        {{else}}
+                        {{!-- <a href="/authorization#test1">My account</a> --}}
+                        {{!-- <a href="/authorization#test2">My account</a> --}}
+                        {{#if isAut}}
+                        <li class="unselectable active account"><span> My account</span></li>
+                        {{else}}
+                        <li class="unselectable account"><span> My account</span>
+                                 <div class="account-div">
+                                <div class="account-p">
+                                        <p>Create an account or log in to view your orders,
+                                                return or adjust your personal information</p>
+                                </div>
+                                <hr class="account-hr">
+                                <div class="account-div-active">
+                                        <a href="/authorization#test2" class="unselectable account-a-a"><span>Create
+                                                        account</span></a>
+                                        <a class="unselectable account-a-button my-account-log-btn" href="/authorization#test1"><span>Log
+                                                        in</span><i class="material-icons">keyboard_arrow_right</i></a>
+                                </div>
+                        </div>
+                        </li>
+                       
+                        {{/if}}
+                        {{/if}}
+
+
+                        {{#if isAuth}}
+                        <li class="unselectable account"><span>Exit</span>
+                                  <div class="account-div">
+                                <div class="account-p">
+                                        <p>
+                                                Do you want to sign out of your account?</p>
+                                </div>
+                                <hr class="account-hr">
+                                <div class="account-div-active">
+                                        <a class="unselectable account-a-button my-account-log-out-btn" href="/authorization/logout"><span>Log
+                                                        out</span><i class="material-icons">exit_to_app</i></a>
+                                </div>
+                        </div>
+                        </li>
+                        {{!-- /authorization/logout --}}
+                      
+                        {{/if}}
+                </ul>
+        </div>
+</nav>
